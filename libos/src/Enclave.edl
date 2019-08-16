@@ -1,0 +1,24 @@
+enclave {
+    from "sgx_stdio.edl" import *;
+    from "sgx_backtrace.edl" import *;
+    from "sgx_tstdc.edl" import *;
+    from "sgx_tstd.edl" import *;
+    from "sgx_tprotected_fs.edl" import *;
+    from "sgx_net.edl" import *;
+
+    trusted {
+        /* define ECALLs here. */
+        public int libos_boot([in, string] const char* executable_path, [user_check] const char** argv);
+        public int libos_run(void);
+        /* This is only for debug usage */
+        public int dummy_ecall(void);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char* msg);
+        int ocall_run_new_task(void);
+        void ocall_gettimeofday([out] long* sec, [out] long* us);
+        void ocall_clock_gettime(int clockid, [out] long* sec, [out] long* ns);
+        void ocall_sync(void);
+    };
+};

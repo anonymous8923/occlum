@@ -1,0 +1,29 @@
+[package]
+name = "Occlum"
+version = "0.0.1"
+
+[lib]
+name = "occlum_rs"
+crate-type = ["staticlib"]
+
+[dependencies]
+bitflags = "1.0"
+log = "0.4"
+lazy_static = { version = "1.1.0", features = ["spin_no_std"] } # Implies nightly
+derive_builder = "0.7.2"
+rcore-fs = { path = "../../deps/sefs/rcore-fs" }
+rcore-fs-sefs = { path = "../../deps/sefs/rcore-fs-sefs" }
+rcore-fs-ramfs = { path = "../../deps/sefs/rcore-fs-ramfs" }
+rcore-fs-mountfs = { path = "../../deps/sefs/rcore-fs-mountfs" }
+
+[features]
+default = ["integrity_only_opt", "sgx_file_cache"]
+syscall_timing = []     # Timing for each syscall. But it has cost from more ocall.
+integrity_only_opt = [] # Clear bss only. It should be disabled if checking memory reads.
+sgx_file_cache = []     # Cache SgxFile objects. Invalidation is unimplemented.
+
+[target.'cfg(not(target_env = "sgx"))'.dependencies]
+xmas-elf = { path = "../../deps/xmas-elf" }
+sgx_types = { path = "../../deps/rust-sgx-sdk/sgx_types" }
+sgx_tstd = { path = "../../deps/rust-sgx-sdk/sgx_tstd", features = ["backtrace"] }
+sgx_trts = { path = "../../deps/rust-sgx-sdk/sgx_trts" }
