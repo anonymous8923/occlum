@@ -40,12 +40,12 @@ Step 1-4 are to be done on the host OS:
 
 1. Install [Intel SGX driver for Linux](https://github.com/intel/linux-sgx), which is required by Intel SGX SDK.
 
-2. Install [enable_rdfsbase kernel module](https://github.com/occlum/enable_rdfsbase), which enables Occlum to use `rdfsbase`-family instructions in enclaves.
+2. Install [enable_rdfsbase kernel module], which enables Occlum to use `rdfsbase`-family instructions in enclaves.
 
 3. Download the latest source code of Occlum LibOS
 ```
 cd /your/path/to/
-git clone https://github.com/occlum/libos
+// which you should alread have now
 ```
 4. Run the Occlum Docker container
 ```
