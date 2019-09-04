@@ -95,8 +95,6 @@ Of course, Occlum must be run on Intel x86 CPUs with SGX support to do its magic
 ## Contributors
 
 The creators of Occlum project are
-  * Hongliang Tian and Shoumeng Yan from Intel Corporation (now work for Ant Financial); and
-  * Youren Shen, Yu Chen, and Kang Chen from Tsinghua University.
 
 This project follows the [all-contributors](https://allcontributors.org) specification. Contributions of any kind are welcome! We will publish contributing guidelines and accept pull requests after the project gets more stable.
 
