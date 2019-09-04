@@ -100,6 +100,3 @@ This project follows the [all-contributors](https://allcontributors.org) specifi
 
 Thanks go to [all these wonderful contributors for this project](CONTRIBUTORS.md).
 
-## Disclaimer
-
-While Occlum was originally designed by and incubated inside Intel, it is NOT an official Intel product.
